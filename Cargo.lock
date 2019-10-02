@@ -96,7 +96,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "amethyst-starter-2d"
+name = "amethyst-spritesheet-example"
 version = "0.1.0"
 dependencies = [
  "amethyst 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",

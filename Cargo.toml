@@ -2,7 +2,7 @@
 name = "amethyst-spritesheet-example"
 version = "0.1.0"
 authors = ["Hilmar Wiegand <me@hwgnd.de>", "Joachim Grill <joachim@codeandweb.com>"]
-edition = "2019"
+edition = "2018"
 
 [dependencies]
 amethyst = "0.13.0"

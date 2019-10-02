@@ -1,8 +1,8 @@
 //
-//  This file was created with TexturePacker: https://www.codeandweb.com/texturepacker
-//  It contains sprite sheet data for the Amethyst Game Engine: https://amethyst.rs
+//  Sprite sheet data for Amethyst Game Engine: https://www.amethyst.rs
+//  This file was created by TexturePacker: https://www.codeandweb.com/texturepacker
 //
-//  $TexturePacker:SmartUpdate:952fa0653caf8665ea6c18a65f7fab1f:93556a30a7df481d81583df7522451bb:56397e2a57cf7772eb2a941aa2b309a5$
+//  $TexturePacker:SmartUpdate:3eb9dbae88bdf080aa1266d1b9a3d541:93556a30a7df481d81583df7522451bb:56397e2a57cf7772eb2a941aa2b309a5$
 //
 
 #![enable(implicit_some)]

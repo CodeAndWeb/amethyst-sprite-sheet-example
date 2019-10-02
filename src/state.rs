@@ -3,7 +3,7 @@ use amethyst::{
     core::transform::Transform,
     input::{get_key, is_close_requested, is_key_down, VirtualKeyCode},
     prelude::*,
-    renderer::{Camera, ImageFormat, SpriteRender, SpriteSheet, SpriteSheetFormat, Texture},
+    renderer::{Camera, ImageFormat, SpriteRender, SpriteSheet, SpriteSheetFormat, Texture, Transparent},
     window::ScreenDimensions,
 };
 
@@ -127,5 +127,6 @@ fn add_sprite(world: &mut World, sprite: &SpriteRender, x: f32, y: f32)
         .create_entity()
         .with(sprite.clone())
         .with(transform)
+        .with(Transparent)
         .build();
 }
