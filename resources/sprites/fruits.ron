@@ -1,0 +1,39 @@
+//
+//  This file was created with TexturePacker: https://www.codeandweb.com/texturepacker
+//  It contains sprite sheet data for the Amethyst Game Engine: https://amethyst.rs
+//
+//  $TexturePacker:SmartUpdate:952fa0653caf8665ea6c18a65f7fab1f:93556a30a7df481d81583df7522451bb:56397e2a57cf7772eb2a941aa2b309a5$
+//
+
+#![enable(implicit_some)]
+(
+    texture_width: 251,
+    texture_height: 255,
+    sprites: [
+        (
+            // 0: banana.png
+            x: 1,
+            y: 1,
+            width: 127,
+            height: 128,
+            offsets: (0.5, 0),
+        ),
+        (
+            // 1: cherries.png
+            x: 130,
+            y: 1,
+            width: 120,
+            height: 125,
+            offsets: (-1, 1.5),
+        ),
+        (
+            // 2: orange.png
+            x: 1,
+            y: 131,
+            width: 127,
+            height: 123,
+            offsets: (-0.5, 2.5),
+        )
+    ]
+)
+
