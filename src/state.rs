@@ -9,6 +9,8 @@ use amethyst::{
 
 use log::info;
 
+mod sprites;
+
 pub struct MyState;
 
 impl SimpleState for MyState {
@@ -27,8 +29,7 @@ impl SimpleState for MyState {
         init_camera(world, &dimensions);
 
         // Load our sprites and display them
-        let sprites = load_sprites(world);
-        init_sprites(world, &sprites, &dimensions);
+        init_sprites(world, &dimensions);
     }
 
     fn handle_event(
@@ -70,7 +71,8 @@ fn init_camera(world: &mut World, dimensions: &ScreenDimensions) {
         .build();
 }
 
-fn load_sprites(world: &mut World) -> Vec<SpriteRender> {
+
+fn init_sprites(world: &mut World, dimensions: &ScreenDimensions) {
     // Load the texture for our sprites. We'll later need to
     // add a handle to this texture to our `SpriteRender`s, so
     // we need to keep a reference to it.
@@ -98,33 +100,32 @@ fn load_sprites(world: &mut World) -> Vec<SpriteRender> {
         )
     };
 
-    // Create our sprite renders. Each will have a handle to the texture
-    // that it renders from. The handle is safe to clone, since it just
-    // references the asset.
-    (0..3)
-        .map(|i| SpriteRender {
-            sprite_sheet: sheet_handle.clone(),
-            sprite_number: i,
-        })
-        .collect()
+    let screen_center_x = dimensions.width() * 0.5;
+    let screen_center_y = dimensions.height() * 0.5;
+
+    let sprite1 = SpriteRender { sprite_sheet: sheet_handle.clone(), sprite_number: sprites::BANANA };
+    add_sprite(world, &sprite1, screen_center_x-100., screen_center_y-100.);
+
+    let sprite2 = SpriteRender { sprite_sheet: sheet_handle.clone(), sprite_number: sprites::CHERRIES };
+    add_sprite(world, &sprite2, screen_center_x, screen_center_y);
+
+    let sprite3 = SpriteRender { sprite_sheet: sheet_handle.clone(), sprite_number: sprites::ORANGE };
+    add_sprite(world, &sprite3, screen_center_x+100., screen_center_y+100.);
 }
 
-fn init_sprites(world: &mut World, sprites: &[SpriteRender], dimensions: &ScreenDimensions) {
-    for (i, sprite) in sprites.iter().enumerate() {
-        // Center our sprites around the center of the window
-        let x = (i as f32 - 1.) * 100. + dimensions.width() * 0.5;
-        let y = (i as f32 - 1.) * 100. + dimensions.height() * 0.5;
-        let mut transform = Transform::default();
-        transform.set_translation_xyz(x, y, 0.);
 
-        // Create an entity for each sprite and attach the `SpriteRender` as
-        // well as the transform. If you want to add behaviour to your sprites,
-        // you'll want to add a custom `Component` that will identify them, and a
-        // `System` that will iterate over them. See https://book.amethyst.rs/stable/concepts/system.html
-        world
-            .create_entity()
-            .with(sprite.clone())
-            .with(transform)
-            .build();
-    }
+fn add_sprite(world: &mut World, sprite: &SpriteRender, x: f32, y: f32)
+{
+    let mut transform = Transform::default();
+    transform.set_translation_xyz(x, y, 0.);
+
+    // Create an entity for each sprite and attach the `SpriteRender` as
+    // well as the transform. If you want to add behaviour to your sprites,
+    // you'll want to add a custom `Component` that will identify them, and a
+    // `System` that will iterate over them. See https://book.amethyst.rs/stable/concepts/system.html
+    world
+        .create_entity()
+        .with(sprite.clone())
+        .with(transform)
+        .build();
 }
