@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>5.1.1</string>
+        <string>5.2.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -129,12 +129,12 @@
         </struct>
         <key>dataFileNames</key>
         <map type="GFileNameMap">
-            <key>datafile</key>
+            <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
                 <filename>fruits.ron</filename>
             </struct>
-            <key>spriteidsfile</key>
+            <key>spriteids</key>
             <struct type="DataFile">
                 <key>name</key>
                 <filename>../../src/state/sprites.rs</filename>
